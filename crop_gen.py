@@ -47,9 +47,8 @@ def parse_args():
                         help="Location of output directory to save cropped images.")
 
     parser.add_argument("--type",
-                        default='basil',
+                        default='kopf_salad',
                         help="Types of the cropped image.")
-    
 
     args = parser.parse_args()
     return args
@@ -62,7 +61,7 @@ if __name__ == "__main__":
 
     dir = args.input
     out_dir = os.path.join(args.output, args.type)
-
+    logger.info(f'This program is to generate {args.type} images.')
     logger.info('Input is located in '+ dir)
     
 
@@ -108,14 +107,6 @@ if __name__ == "__main__":
                 cv2.namedWindow("image")
                 cv2.setMouseCallback("image", mouse_crop)
                 pass
-
-            if key == ord('x'): # save and eXist
-                crop_name = os.path.join(out_dir, name_parts[0]+'_'+str(order)+'.'+name_parts[1])
-                cv2.imwrite(crop_name , croppedImage)
-                cv2.destroyAllWindows()
-
-                logger.info(crop_name+ ' is saved. Move to the next image.')
-                break
 
             if key == ord('c'): # Continue cropping in the current image
                 crop_name = os.path.join(out_dir, name_parts[0]+'_'+str(order)+'.'+name_parts[1])
