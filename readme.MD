@@ -6,7 +6,7 @@
 
 ### 1. Run the code
 python crop_gen.py --input {input directory} --output {output directory} --type {type of cropped image} \
-ex) python crop_gen.py --input input --output output --type basil \
+ex) python crop_gen.py --input input --output output --type basil 
 
 ### 2.Drag from top left to bottom right. 
 ![plot](./demo/crop.jpg)
