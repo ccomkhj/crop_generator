@@ -118,7 +118,7 @@ if __name__ == '__main__':
     for img_name, mask in zip(img_names, masks):
 
         logger.info('This image is being processed : ', mask)
-        _, rois = group(mask, intact=True)
+        _, rois = group(mask, sensitivity= 0.003, intact=True)
         crop_img(rois, img_name)
 
 
