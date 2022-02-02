@@ -31,6 +31,7 @@ def mouse_crop(event, x, y, flags, param):
         if len(refPoint) == 2:  # when two points were found
             roi = oriImage[refPoint[0][1]:refPoint[1][1], refPoint[0][0]:refPoint[1][0]]
             croppedImage = roi
+            cv2.namedWindow("Cropped", cv2.WINDOW_NORMAL)
             cv2.imshow("Cropped", roi)
 
 def parse_args():
@@ -75,7 +76,7 @@ if __name__ == "__main__":
 
     for file in os.listdir(dir):
 
-        cv2.namedWindow("image")
+        cv2.namedWindow("image",  cv2.WINDOW_NORMAL)
         cv2.setMouseCallback("image", mouse_crop)
 
         fullpath = os.path.join(dir, file)
@@ -104,7 +105,7 @@ if __name__ == "__main__":
 
                 logger.info('Try the next cropping.')
 
-                cv2.namedWindow("image")
+                cv2.namedWindow("image", cv2.WINDOW_NORMAL)
                 cv2.setMouseCallback("image", mouse_crop)
                 pass
 
@@ -116,7 +117,7 @@ if __name__ == "__main__":
                 logger.info(crop_name+ ' is saved. More cropping is working on the same image.')
                 order += 1    
 
-                cv2.namedWindow("image")
+                cv2.namedWindow("image", cv2.WINDOW_NORMAL)
                 cv2.setMouseCallback("image", mouse_crop)
                 pass
 
