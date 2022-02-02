@@ -39,7 +39,7 @@ def parse_args():
         description="Crop image generator")
 
     parser.add_argument("--input",
-                        default='input',
+                        default='input/image',
                         help="Location of input directory to be cropped.")
 
     parser.add_argument("--output",
