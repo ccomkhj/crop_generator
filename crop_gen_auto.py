@@ -69,7 +69,6 @@ def group(mask, sensitivity, debug=False, intact=True):
         if area < MIN_AREA or i == 0:
             # skip too small or the whole image
             continue
-        cx, cy = center
         roi = ty, ty+verti, tx, tx+hori
 
         cropped = img[roi[0]:roi[1], roi[2]:roi[3]]
@@ -77,7 +76,7 @@ def group(mask, sensitivity, debug=False, intact=True):
         if cv2.connectedComponents(cropped)[0] != 2: # if there is more than one object in the cropped mask,
             continue
 
-        if intact and any(roi) == 0 | img.shape[0]-1 | img.shape[1]-1: # if a cropped image is located on the image border,
+        if intact and any(x in roi for x in [0, img.shape[0], img.shape[1]]): # if a cropped image is located on the image border,
             continue
 
         cropped_masks.append(cropped)
