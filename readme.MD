@@ -8,8 +8,10 @@
 ### This is helpful tool to manually crop images.
 
 ### 1. Run the code
+```bash
 python crop_gen_manual.py --input {input directory} --output {output directory} --type {type of cropped image} \
 ex) python crop_gen_manual.py --input input --output output --type basil 
+```
 
 ### 2.Drag from top left to bottom right. 
 ![plot](./demo/crop.jpg)
